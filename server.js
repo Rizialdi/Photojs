@@ -25,6 +25,9 @@ app.prepare()
       <p>Vous avez une nouvelle demande de contact</p>
       <h3>Details du contact</h3>
       <li>Nom: ${req.body.name} ${req.body.surname} </li>
+      <li>Email: ${req.body.email} </li>
+      <li>Tel: ${req.body.tel} </li>
+      <li>Évènement: ${req.body.event} </li>
       <li>Email: ${req.body.message} </li>
     `
 

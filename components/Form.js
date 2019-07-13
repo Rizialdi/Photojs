@@ -8,6 +8,8 @@ export default () => {
         <form method="POST" action="/send" className="wrap-contact100">
             <Input appel="name" tag="Nom" />
             <Input appel="surname" tag="Prénom" />
+            <Input appel="email" tag="Email" />
+            <Input appel="tel" tag="Téléphone" />
             <DropDownItemSelection appel="event" tag="Évènement" items={items} />
             <TextArea tag="Message" />
             <Submit_button />
