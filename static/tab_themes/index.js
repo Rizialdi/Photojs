@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _templateObject = _taggedTemplateLiteral(['\n transition-duration: 0.3s; \n background-color: #fff;\n margin: 0 auto;\n width: 30%;\n min-width: 415px;\n'], ['\n  background-color: #eee;\n  border-bottom: 1px solid #dbdbdb;\n'], ['\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n  position: relative;\n letter-spacing: 1px; \n font-weight: bold; \n font-size: 0.95em; \n font-family: "Manjari"; \n  color: #000;\n  border: 0;\n  padding: 1em 1em;\n  margin-bottom: 10px;\n   &::after {\n    z-index: 0;\n    content: \'\';\n    position: absolute;\n    left: 0px;\n    bottom: 0px;\n    right: 0px;\n    height: 2px;\n    background: #dbdbdb;\n  }\n  ', '\n  &:hover::after {\n    background: #fd513b;\n  }\n'], ['\n  position: relative;\n  color: #4a4a4a;\n  border: 0;\n  padding: 13px 19px;\n  margin-bottom: -1px;\n  &::after {\n    z-index: 10;\n    content: \'\';\n    position: absolute;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    height: 2px;\n    background: #dbdbdb;\n  }\n  ', '\n  &:hover::after {\n    background: #3273dc;\n  }\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  background-color: transparent; \n  border-radius: 50px;\n  &:hover {\n    background-color: #eee;\n  }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  background-color: transparent; \n  border-radius: 0px;\n  &:hover {\n    background-color: #eee;\n  }\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n  display: block ; \n width: 60% \n margin: 0 auto \n'], ['\n']);
 
 var _styledComponents = require('styled-components');

@@ -120,8 +120,8 @@ export default () => {
         </TabList>
         <PanelList>
           <Panel><Carousel images={images}/></Panel>
-          <Panel>Paysage</Panel>
-          <Panel>Paysage</Panel>
+          <Panel><Carousel images={images}/></Panel>
+          <Panel><Carousel images={images}/></Panel>
           <Panel><Carousel images={images}/></Panel>
         </PanelList>
       </Tabs>

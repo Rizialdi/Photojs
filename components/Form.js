@@ -14,13 +14,19 @@ export default () => {
             <style jsx>{`
                 .wrap-contact100 {
                     display: block;
-                    width: 1000px;
+                    width: calc(80%);
                     background: #fff;
                     border-radius: 10px;
                     padding: 82px 180px 33px 180px;
                     position: relative;
                     margin: 0 auto;
                 }
+
+                @media (max-width:880px) {
+                    .wrap-contact100 {
+                    width: calc(100%-1em);
+                    padding: 2em 2em;
+                }}
         `}</style>
         </form>
     )
@@ -35,7 +41,7 @@ const Input = (props) => {
 
             <style jsx>{`
         .wrap-input {
-            width: calc((100% - 60px) / 2);
+            width: calc((100% - 100px) / 2);
             position: relative;
             display: inline-block;
             border-bottom: 2px solid #d9d9d9;
@@ -88,6 +94,11 @@ const Input = (props) => {
         .input100:focus + .focus-input100::before {
             width: 100%;
             }
+
+        @media (max-width:880px) {
+            .wrap-input {
+            width: 100%;
+        }}
         `}</style>
         </div>
     )
@@ -102,7 +113,7 @@ const TextArea = (props) => {
 
             <style jsx>{`
         .wrap-input100 {
-            width: 100%;
+            width: calc((100% - 70px));
             position: relative;
             display: block;
             border-bottom: 2px solid #d9d9d9;
@@ -155,6 +166,16 @@ const TextArea = (props) => {
         .input100:focus + .focus-input100::before {
             width: 100%;
             }
+        
+        @media (max-width:880px) {
+            .wrap-input100 {
+            width: 100%;
+            display:none
+        }}
+        @media (max-width:880px) {
+                    .wrap-input100 {
+                    width: calc(100%);
+                }}
         `}</style>
         </div>
     )

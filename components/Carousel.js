@@ -20,10 +20,10 @@ export default class Home extends Component {
     return (
       <Fragment>
         {!isLoading ? (
-          <Gallery style={{zIndex: '10', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(10em, 1fr))', justifyItems: 'center'}}>
+          <Gallery style={{zIndex: '10', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(13em, 1fr))', justifyItems: 'center'}}>
             {images.map(({ caption, source }, j) => (
-              <Image style={{display:'inline-block', position: 'relative', overflow: 'hidden', paddingLeft: '0.3em', paddingBottom: '5%', width: '10em', height: '10em', ':hover': {display: 'none'},}} onClick={() => this.toggleLightbox(j)} key={source.regular}>
-                <img style={{boxSizing: 'border-box', cursor: 'pointer', maxWidth: '100%', position: 'absolute', height: '10em', width: 'auto', backgroundSize: 'cover', backgroundPosition: "center center", objectFit: 'cover', backgroundRepeat:  'no-repeat'}}
+              <Image style={{display:'inline-block', position: 'relative', overflow: 'hidden', paddingLeft: '5%', paddingBottom: '5%', width: '13em', height: '13em', ':hover': {display: 'none'},}} onClick={() => this.toggleLightbox(j)} key={source.regular}>
+                <img style={{boxSizing: 'border-box', cursor: 'pointer', maxWidth: '100%', position: 'absolute', height: '13em', width: 'auto', backgroundSize: 'cover', backgroundPosition: "center center", objectFit: 'cover', backgroundRepeat:  'no-repeat'}}
                   alt={caption}
                   src={source.thumbnail}
                 />
