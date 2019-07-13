@@ -141,7 +141,6 @@ const TextArea = (props) => {
             outline: none;
             border: none;
             overflow: hidden;
-            text-transform: capitalize;
         }
         .focus-input100 {
             position: absolute;
@@ -247,11 +246,10 @@ const DropDownItemSelection = (props) => {
         <div className="wrap-input100 input100-select">
             <span className="label-input100">{props.tag}</span>
             <div>
-                <select className="selection-2" name={props.appel}>
+                <select className="selection" name={props.appel}>
                     {itm_exp}
                 </select>
             </div>
-           <span className="focus-input100"></span>
             <style jsx>{`
             .wrap-input100 {
                 width: 100%;
@@ -266,38 +264,41 @@ const DropDownItemSelection = (props) => {
                 line-height: 1.5;
                 padding-left: 5px;
                 }
-            .focus-input100 {
-                position: absolute;
+            .selection {
                 display: block;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                pointer-events: none;
-                }
-
-            .focus-input100::before {
-                content: "";
-                display: block;
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                width: 0;
-                height: 2px;
-
-                -webkit-transition: all 0.4s;
-                -o-transition: all 0.4s;
-                -moz-transition: all 0.4s;
-                transition: all 0.4s;
-
-                background: #7f7f7f;
+                font-size: 16px;
+                font-family: Manjari;
+                font-weight: 700;
+                color: #444;
+                line-height: 1.3;
+                padding: .6em 1.4em .5em .8em;
+                width: 50%;
+                max-width: 400px;
+                box-sizing: border-box;
+                margin: 0;
+                border: 1px solid #aaa;
+                    border-top-color: rgb(170, 170, 170);
+                    border-right-color: rgb(170, 170, 170);
+                    border-bottom-color: rgb(170, 170, 170);
+                    border-left-color: rgb(170, 170, 170);
+                box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+                border-radius: .5em;
+                appearance: none;
+                background-color: #fff;
+                background-image: url('../static/images/drop-down.svg'), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+                background-repeat: no-repeat, repeat;
+                background-position: right .7em top 50%, 0 0;
+                background-size: .65em auto, 100%;
             }
-            option {
-                display: none
+
+            .selection:hover {
+                border: 1px solid grey;
             }
-            .domino {
-                display: none
-            }
+            @media (max-width:880px) {
+                .selection {
+            width: 100%;
+            max-width: 100%
+            }}
         `}</style>
         </div>
     )
