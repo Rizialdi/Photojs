@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const items= ["Seance Photo", "Anniversaire", "Diplomation"]
-const itm_exp = items.map(item => <option className='domino'>{item}</option>)
+const itm_exp = items.map(item => <option className='domino' key={item}>{item}</option>)
 
 export default () => {
     return (

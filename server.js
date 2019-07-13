@@ -20,7 +20,7 @@ app.prepare()
     app.render(req, res, actualPage)
   })
 
-  server.post('/send', (req, res) => {
+  server.post('/send', async (req, res) => {
     const output = `
       <p>Vous avez une nouvelle demande de contact</p>
       <h3>Details du contact</h3>
@@ -29,6 +29,36 @@ app.prepare()
     `
 
     console.log(output);
+
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: "nollet.shooting@gmail.com", // generated ethereal user
+        pass: "tomatowatermelon" // generated ethereal password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+  
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: 'Service Photo Nshoot', // sender address
+      to: "rasselio.diack@gmail.com", // list of receivers
+      subject: `Requete de ${req.body.name}`, // Subject line
+      text: "Hello world?", // plain text body
+      html: output // html body
+    });
+  
+    console.log("Message sent: %s", info);
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+  
+    // Preview only available when sending through an Ethereal account
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    
   })
 
   server.get('*', (req, res) => {
