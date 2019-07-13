@@ -15,9 +15,9 @@ export default function Layout(props) {
   return (
     <div style={layoutStyle}>
       <Head>
-        <title>maison</title>
+        <title>Nollet Shooting</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="../static/images/tiger.jpg" />
+        <link rel="icon" type="image/png" href="../static/images/logo.png" />
       </Head>
       <Header />
       {props.children}
