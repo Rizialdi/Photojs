@@ -8,12 +8,12 @@ const layoutStyle = {
   lineHeight: 1.533,
   backgroundColor: "white",
   minHeight: "100% !important",
-  margin: 0
+  margin: "-10px",
  }
 
 export default function Layout(props) {
   return (
-    <body style={layoutStyle}>
+    <div style={layoutStyle}>
       <Head>
         <title>maison</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,6 +21,6 @@ export default function Layout(props) {
       </Head>
       <Header />
       {props.children}
-    </body>
+    </div>
   )
 }
