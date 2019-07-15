@@ -2,6 +2,8 @@ const express = require('express');
 const next = require('next');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const flash = require('express-flash-messages');
+const session = require('express-session')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -14,6 +16,13 @@ app.prepare()
   const server = express()
   server.use(bodyParser.urlencoded({ extended: false}));
   server.use(bodyParser.json());
+  server.use(flash());
+  server.use(session({
+    secret: "cat bat", 
+    cookie: { maxAge: 60000 },
+    resave: true,    // forces the session to be saved back to the store
+    saveUninitialized: false  // dont save unmodified
+  }));
 
   server.get('/', (req, res) => {
     const actualPage = '/Accueil'
@@ -30,7 +39,6 @@ app.prepare()
       <li>Évènement: ${req.body.event} </li>
       <li>Email: ${req.body.message} </li>
     `
-
     console.log(output);
 
     let transporter = nodemailer.createTransport({
@@ -55,13 +63,17 @@ app.prepare()
       html: output // html body
     });
   
-    console.log("Message sent: %s", info);
+    console.log("Message sent: %s", info.messageId);
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-  
+    
+    console.log("Envelopp: %s", info.envelope);
     // Preview only available when sending through an Ethereal account
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-    
+    if (info.messageId) {
+      req.flash('notify', 'This is a notification')
+      res.redirect('/Contacts')
+    } else res.redirect('/Contacts') 
   })
 
   server.get('*', (req, res) => {
