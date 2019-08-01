@@ -20,7 +20,7 @@ export default () => {
                         Je suis un passionné de la photographie et votre satisfaction est mon but.
                     </p>
                     <SocialLink />
-                    <a className="btn"> Découvrir </a>
+                    <a className="btn" href="#tab_id"> Découvrir </a>
                 </div>
             </header>
             <style jsx>{`
@@ -77,12 +77,14 @@ export default () => {
                     font-size:10vh;
                     margin-bottom:0;
                     display: block;
+                    font-family: 'Rock Salt', cursive;
                     }
 
                     .header-content p{
-                    font-size:2vh;
+                    font-size:3vh;
                     display:block;
                     padding-bottom:2rem;
+                    font-family: Parisienne; 
                     }
 
                     .header-content .header-photo {

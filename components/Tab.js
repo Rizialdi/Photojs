@@ -4,6 +4,7 @@ import { faCoffee, faPortrait, faLandmark, faObjectGroup, faStop, faObjectUngrou
 import {Tabs, TabList, Tab, PanelList, Panel} from 'react-tabtab';
 import Carousel from './Carousel';
 import * as customStyle from '../static/tab_themes';
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 export default () => {
 
@@ -111,7 +112,8 @@ export default () => {
 ]
 
     return (
-      <Tabs customStyle={customStyle}>
+      <ScrollableAnchor id={'tab_id'}>
+         <Tabs customStyle={customStyle}>
         <TabList>
           <Tab> Tout </Tab>
           <Tab><FontAwesomeIcon icon={faPortrait} /> Portrait </Tab>
@@ -125,5 +127,6 @@ export default () => {
           <Panel><Carousel images={images}/></Panel>
         </PanelList>
       </Tabs>
+      </ScrollableAnchor> 
     )
 }

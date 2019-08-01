@@ -18,6 +18,7 @@ export default function Layout(props) {
         <title>Nollet Shooting</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/png" href="../static/images/logo.png" />
+        <link href="https://fonts.googleapis.com/css?family=Rock+Salt|Parisienne|Sofia&display=swap" rel="stylesheet"/>
       </Head>
       <Header />
       {props.children}
