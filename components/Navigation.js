@@ -27,6 +27,7 @@ export default () => {
                 display: inline-block;
                 text-align: center;
                 line-height: 1.7;
+                margin-bottom: 10em
             }
 
             nav {

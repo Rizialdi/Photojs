@@ -16,6 +16,7 @@ export default () => {
                 float: left;
                 text-align: left;
                 margin-left: 50px;
+                margin-top: -15px
             }
 
             #site_detail {
@@ -30,10 +31,11 @@ export default () => {
                 text-transform: capitalize;
                 font-family: 'Manjari';
                 font-weight: 400;
+                font-size: 1.1vh
             }
 
             img {
-                height: 5em;
+                height: 4em;
                 width: auto
             }
             `}</style>
