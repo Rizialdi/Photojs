@@ -31,7 +31,7 @@ export default class Playback extends Component {
             <div>
                 <header style={container}>
                     <div className="fullscreen-video-wrap">
-                        <video src="../static/videos/loop_video.mp4" autoplay="true" loop={"true"}>
+                        <video src="../static/videos/loop_video.mp4" autoPlay={true} loop={true}>
                         </video>
                     </div>
                     <div className="header-overlay"></div>
