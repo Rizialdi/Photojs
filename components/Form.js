@@ -1,37 +1,127 @@
 import React, { Component } from 'react';
 
-const items= ["Seance Photo", "Anniversaire", "Diplomation"]
-const itm_exp = items.map(item => <option className='domino' key={item}>{item}</option>)
 
-export default () => {
-    return (
-        <form method="POST" action="/send" className="wrap-contact100">
-            <Input appel="name" tag="Nom" />
-            <Input appel="surname" tag="Prénom" />
-            <Input appel="email" tag="Email" />
-            <Input appel="tel" tag="Téléphone" />
-            <DropDownItemSelection appel="event" tag="Évènement" items={items} />
-            <TextArea tag="Message" />
-            <Submit_button />
-            <style jsx>{`
-                .wrap-contact100 {
-                    display: block;
-                    width: calc(80%);
-                    background: #fff;
-                    border-radius: 10px;
-                    padding: 82px 180px 33px 180px;
-                    position: relative;
-                    margin: 0 auto;
-                }
 
-                @media (max-width:880px) {
+export default class Form extends Component {
+    constructor(...args) {
+        super(...args);
+        this.state = {
+            event: 'Seance Photo'
+        };
+    }
+
+    selectFunc = (e) => {
+        this.setState({event: e})
+    }
+    render () {
+        const items_event= ["Seance Photo", "Anniversaire", "Diplomation"]
+        let items_budget = []
+        switch(this.state.event) {
+            case 'Seance Photo': items_budget =  ["60.000", "55.000", "40.000"]; break;
+            case 'Anniversaire': items_budget =  ["70.000", "30.000", "120.000"]; break;
+            case 'Diplomation': items_budget =  ["10.OOO", "20.000", "25.000"]; break;
+        }
+            
+        const itm_event = items_event.map(item => <option key={item} onClick={this.selectFunc.bind(this, item)}>{item}</option>)
+        const itm_budget= items_budget.map(item => <option key={item}>{item}</option>)
+
+        const DropDownItemSelection = (props) => {
+            return (
+                <div className="wrap-input100">
+                    <span className="label-input100">{props.tag}</span>
+                    <div>
+                        <select className="selection" name={props.appel}>
+                            {props.appel == "event" ? itm_event : itm_budget}
+                        </select>
+                    </div>
+                    <style jsx>{`
+                    .wrap-input100 {
+                        width: calc((100% - 50px) / 2);
+                        display: inline-block;
+                        position: relative;
+                        padding-bottom: 13px;
+                        margin-bottom: 27px;
+                        }
+                    .label-input100 {
+                        font-family: Manjari;
+                        font-size: 18px;
+                        color: #666666;
+                        line-height: 1.5;
+                        padding-left: 5px;
+                        }
+                    .selection {
+                        display: block;
+                        font-size: 16px;
+                        font-family: Manjari;
+                        font-weight: 700;
+                        color: #444;
+                        line-height: 1.3;
+                        padding: .6em 1.4em .5em .8em;
+                        width: 80%;
+                        max-width: 400px;
+                        box-sizing: border-box;
+                        margin: 0;
+                        border: 1px solid #aaa;
+                            border-top-color: rgb(170, 170, 170);
+                            border-right-color: rgb(170, 170, 170);
+                            border-bottom-color: rgb(170, 170, 170);
+                            border-left-color: rgb(170, 170, 170);
+                        box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+                        border-radius: .5em;
+                        appearance: none;
+                        background-color: #fff;
+                        background-image: url('../static/images/drop-down.svg'), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+                        background-repeat: no-repeat, repeat;
+                        background-position: right .7em top 50%, 0 0;
+                        background-size: .65em auto, 100%;
+                    }
+        
+                    .selection:hover {
+                        border: 1px solid grey;
+                    }
+                    @media (max-width:880px) {
+                        .selection {
+                            width: 100%;
+                            max-width: 100%
+                    }
+                        .wrap-input100 {
+                            width: 100%;
+                            }
+                    }
+                `}</style>
+                </div>
+            )
+        }
+        return (
+            <form method="POST" action="/send" className="wrap-contact100">
+                <Input appel="name" tag="Nom" />
+                <Input appel="surname" tag="Prénom" />
+                <Input appel="email" tag="Email" />
+                <Input appel="tel" tag="Téléphone" />
+                <DropDownItemSelection appel="event" tag="Évènement" items={items_event} />
+                <DropDownItemSelection appel="budget" tag="Budget" items={items_budget} />
+                <TextArea tag="Message" />
+                <Submit_button />
+                <style jsx>{`
                     .wrap-contact100 {
-                    width: calc(100%-1em);
-                    padding: 2em 2em;
-                }}
-        `}</style>
-        </form>
-    )
+                        display: block;
+                        width: calc(80%);
+                        background: #fff;
+                        border-radius: 10px;
+                        padding: 82px 180px 33px 180px;
+                        position: relative;
+                        margin: 0 auto;
+                    }
+    
+                    @media (max-width:880px) {
+                        .wrap-contact100 {
+                        width: calc(100%-1em);
+                        padding: 2em 2em;
+                    }}
+            `}</style>
+            </form>
+        )
+    }
 }
 
 const Input = (props) => {
@@ -238,69 +328,6 @@ const Submit_button = (props) => {
                 -o-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
                 -ms-box-shadow: 0 10px 30px 0px rgba(51, 51, 51, 0.5);
                 }
-        `}</style>
-        </div>
-    )
-}
-
-const DropDownItemSelection = (props) => {
-    return (
-        <div className="wrap-input100 input100-select">
-            <span className="label-input100">{props.tag}</span>
-            <div>
-                <select className="selection" name={props.appel}>
-                    {itm_exp}
-                </select>
-            </div>
-            <style jsx>{`
-            .wrap-input100 {
-                width: 100%;
-                position: relative;
-                padding-bottom: 13px;
-                margin-bottom: 27px;
-                }
-            .label-input100 {
-                font-family: Manjari;
-                font-size: 18px;
-                color: #666666;
-                line-height: 1.5;
-                padding-left: 5px;
-                }
-            .selection {
-                display: block;
-                font-size: 16px;
-                font-family: Manjari;
-                font-weight: 700;
-                color: #444;
-                line-height: 1.3;
-                padding: .6em 1.4em .5em .8em;
-                width: 50%;
-                max-width: 400px;
-                box-sizing: border-box;
-                margin: 0;
-                border: 1px solid #aaa;
-                    border-top-color: rgb(170, 170, 170);
-                    border-right-color: rgb(170, 170, 170);
-                    border-bottom-color: rgb(170, 170, 170);
-                    border-left-color: rgb(170, 170, 170);
-                box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-                border-radius: .5em;
-                appearance: none;
-                background-color: #fff;
-                background-image: url('../static/images/drop-down.svg'), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
-                background-repeat: no-repeat, repeat;
-                background-position: right .7em top 50%, 0 0;
-                background-size: .65em auto, 100%;
-            }
-
-            .selection:hover {
-                border: 1px solid grey;
-            }
-            @media (max-width:880px) {
-                .selection {
-            width: 100%;
-            max-width: 100%
-            }}
         `}</style>
         </div>
     )
