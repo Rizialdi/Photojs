@@ -37,6 +37,7 @@ app.prepare()
       <li>Email: ${req.body.email} </li>
       <li>Tel: ${req.body.tel} </li>
       <li>Évènement: ${req.body.event} </li>
+      <li>Budget: ${req.body.budget} </li>
       <li>Email: ${req.body.message} </li>
     `
     console.log(output);
