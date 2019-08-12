@@ -11,8 +11,20 @@ export default class Playback extends Component {
 
     updateDisplay = () => {
         this.setState({display: false});
+        localStorage.setItem("display", "false")
     }
     
+    componentDidMount() {
+        let display;
+        console.log(localStorage.getItem("display"))
+        if (localStorage.getItem("display") === null) {
+          display = true}
+        else {
+          display = false;
+        }
+        this.setState({ display });
+      }
+
     render () {
         const display = this.state.display ? 'flex' : 'none';
         const container = {
@@ -26,7 +38,6 @@ export default class Playback extends Component {
             margin:'auto',
             textAlign:'center',
         }
-        console.log("told: " + this.state.display)
         return (
             <div>
                 <header style={container}>
