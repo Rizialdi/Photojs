@@ -16,7 +16,6 @@ export default () => {
                 height: 75px;
                 background: linear-gradient(to bottom, rgba(23,23,23, 0.3) 0%, rgba(23,23,23, 0) 100%);
                 padding: 20px 0 30px;
-                margin: 5em 0;
             }
             `}</style>
         </div>
