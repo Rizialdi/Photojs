@@ -23,7 +23,7 @@
     "front-matter": "^2.3.0",
     "hammerjs": "^2.0.8",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "^6.0.3",
+    "next": "^11.1.0",
     "next-routes": "^1.4.2",
     "nodemailer": "^6.2.1",
     "nodemon": "^1.19.1",
